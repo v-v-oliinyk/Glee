@@ -1,0 +1,23 @@
+$accent: #fe3e57;
+
+%roboto-700{
+  font-family: 'Roboto-Bold', sans-serif;
+  font-weight: 700;
+}
+%btn {
+  background-color: $accent;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 12px 26px;
+  @extend %roboto-400;
+  filter: drop-shadow(0px 7px 10px rgba(255,17,48,0.3));
+}
+
+
+
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers});
+}
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers});
+}
