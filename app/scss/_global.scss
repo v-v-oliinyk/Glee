@@ -26,16 +26,28 @@ body {
   padding: 0 15px;
 }
 
-.logo {
-  font-size: 36px;
-  line-height: 58px;
-  @extend %rubik-500;
-  color: $accent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  & span{
-    padding-left: 12px;
+html body{
+  .logo {
+    font-size: 36px;
+    line-height: 58px;
+    @extend %rubik-500;
+    color: $accent;
+    display: flex;
+    align-items: center;
+    transition: all .3s;
+    &__svg {
+      fill: $blue;
+      transition: all .3s;
+    }
+    &:hover .logo__svg {
+      fill: $accent;
+    }
+    & span{
+      padding-left: 12px;
+    }
+    &:hover{
+      color: $blue;
+    }
   }
 }
 
