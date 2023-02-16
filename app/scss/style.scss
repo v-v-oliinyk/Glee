@@ -3,8 +3,85 @@
 @import 'reset';
 @import 'global';
 
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 45px 0;
+}
 
-
+.header-menu__list {
+  display: flex;
+  justify-content: center;
+  &-item + &-item {
+    margin-left: 35px;
+  }
+  &-link{
+    font-size: 15px;
+    line-height: 12px;
+    color: $accent;
+    @extend %rubik-500;
+  }
+}
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  &__search {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($blue, .2);
+    border-radius: 25px;
+  }
+  &__item{
+    display: flex;
+    align-items: center;
+    height: 52px;
+    width: 180px;
+    background-color: $default;
+    border-radius: 26px;
+    position: relative;
+    margin-left: 19px;
+    overflow: hidden;
+    & &-link{
+      position: relative;
+      height: 33px;
+      & span {
+        width: 16px;
+        height: 16px;
+        border-radius: 8px;
+        background-color: #fff;
+        font-size: 10px;
+        line-height: 17px;
+        text-align: center;
+        color: #243f4d;
+        @extend %dmsans-400;
+        position: absolute;
+        top: 0px;
+        right: 25px;
+      }
+    }
+    &-link:nth-child(2){
+      border-left: 1px solid rgba(#ffffff, .4);
+    }
+  }
+  &__menu {
+    width: 52px;
+    height: 52px;
+    border-radius: 25px;
+    background-color: $blue;
+    margin-left: 18px;
+  }
+  & a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 
 @import 'media';
