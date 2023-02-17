@@ -1,7 +1,10 @@
 @import 'vars';
 @import 'fonts';
 @import 'reset';
+@import 'libs';
 @import 'global';
+
+/* header */
 
 .header__inner {
   display: flex;
@@ -123,6 +126,14 @@
   }
 }
 
+.kv__inner {
+  width: 100%;
+  height: 817px;
+}
+
+
+/* footer */
+
 .footer__top {
   display: flex;
   justify-content: space-between;
@@ -135,6 +146,7 @@
     color: #1f2044;
     @extend %dmsans-700;
     margin-bottom: 21px;
+    cursor: default;
   }
   &-item {
     color: $grey;
@@ -237,6 +249,116 @@
     }
   }
 }
+
+.kv {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  &__item {
+    display: flex !important;
+    justify-content: space-between;
+  }
+  &__content {
+    position: absolute;
+    margin-left: 300px;
+    margin-top: 226px;
+  }
+  &__title {
+    max-width: 420px;
+    font-size: 72px;
+    line-height: 70px;
+    color: #243f4d;
+    @extend %rubik-500;
+    text-transform: uppercase;
+    margin-bottom: 39px;
+  }
+  &__subtitle {
+    max-width: 360px;
+    font-size: 18px;
+    line-height: 30px;
+    color: $accent;
+    @extend %rubik-400;
+    margin-bottom: 34px;
+  }
+  &__link {
+    display: block;
+    width: 200px;
+    height: 60px;
+    padding: 26px 10px 21px 28px;
+    color: #fff;
+    font-size: 15px;
+    line-height: 12px;
+    @extend %rubik-500;
+    background-color: $blue;
+    position: relative;
+    transition: all .3s;
+  }
+  &__link::after {
+    content: '';
+    background-image: url(../images/icons/arrow-icon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translateY(2px);
+    width: 23px;
+    height: 10px;
+    position: absolute;
+    right: 20px;
+    transition: all .4s;
+    @keyframes translating {
+      0%   { transform: translate(0, 2px); }
+      50%  { transform: translate(2px, 2px); }
+      100% { transform: translate(0, 2px); }
+    }
+  }
+  &__link:hover::after {
+    animation: translating .7s linear infinite;
+  }
+  &__link:hover{
+    color: $accent;
+  }
+}
+.slick {
+  display: block;
+  &-dots {
+    display: flex;
+    width: fit-content;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    margin: 0 auto;
+    bottom: 55px;
+    & button {
+      border: none;
+      width: 29px;
+      height: 29px;
+      border-radius: 15px;
+      background-color: rgba(#ffffff, .3);
+      font-size: 11px;
+      line-height: 9px;
+      color: #243f4d;
+      @extend %rubik-500;
+      transition: all .2s;
+    }
+    & button:hover{
+      background-color: #ffffff;
+      cursor: pointer;
+    }
+  }
+  &-dots li + li {
+    margin-left: 10px;
+  }
+  &-active button{
+    width: 29px;
+    height: 29px;
+    border-radius: 15px;
+    background-color: #ffffff;
+  }
+  &-active button:hover {
+    cursor: default;
+  }
+}
+
+
 
 
 @import 'media';
