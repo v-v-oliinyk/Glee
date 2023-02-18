@@ -358,7 +358,73 @@
   }
 }
 
-
-
+.kv-base {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 170px;
+  background-color: rgba(#fcd7b6, .2);
+  &__item {
+    height: 100%;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  &__item + &__item{
+    border-left: 1px solid rgba(#243f4d, .1);
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: fit-content;
+    padding-left: 80px;
+    position: relative;
+  }
+  &__content::before {
+    content: '';
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    top: 13px;
+  }
+  &__content-sup::before {
+    background-image: url(../images/icons/support-icon.png);
+    width: 52px;
+    height: 54px;
+  }
+  &__content-del::before {
+    background-image: url(../images/icons/truck-icon.png);
+    width: 55px;
+    height: 37px;
+  }
+  &__content-pay::before {
+    background-image: url(../images/icons/card-icon.png);
+    width: 53px;
+    height: 54px;
+  }
+  &__title {
+    font-size: 18px;
+    line-height: 40px;
+    color: #414141;
+    @extend %dmsans-700;
+  }
+  &__subtitle {
+    display: block;
+    max-width: 205px;
+    font-size: 16px;
+    line-height: 30px;
+    color: #585858;
+    @extend %dmsans-400;
+    margin: 0 auto;
+  }
+  &__content-del &__subtitle {
+    max-width: 213px;
+  }
+}
+  
 
 @import 'media';
