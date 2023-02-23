@@ -9,4 +9,4 @@ dist/
 node_modules/
 package-lock.json
 psd/*
-app/css/*
+app/scss/*

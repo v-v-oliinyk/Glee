@@ -1,4 +1,4 @@
-const {src, dest, watch, parallel, series} = require('gulp');
+const { src, dest, watch, parallel, series } = require('gulp');
 const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
@@ -12,8 +12,8 @@ function build() {
     'app/**/*.html',
     'app/css/style.min.css',
     'app/js/main.min.js'
-  ], {base: 'app'})
-  .pipe(dest('dist'))
+  ], { base: 'app' })
+    .pipe(dest('dist'))
 }
 function cleanDist() {
   return del('dist')
@@ -28,14 +28,14 @@ function browsersync() {
 }
 function styles() {
   return src('app/scss/style.scss')
-  .pipe(scss({outputStyle: 'compressed'}))
-  .pipe(concat('style.min.css'))
-  .pipe(autoprefixer({
-    overrideBrowserslist: ['last 10 version'],
-    grid: true
-  }))
-  .pipe(dest('app/css'))
-  .pipe(browserSync.stream())
+    .pipe(scss({ outputStyle: 'compressed' }))
+    .pipe(concat('style.min.css'))
+    .pipe(autoprefixer({
+      overrideBrowserslist: ['last 10 version'],
+      grid: true
+    }))
+    .pipe(dest('app/css'))
+    .pipe(browserSync.stream())
 }
 function watching() {
   watch(['app/scss/**/*.scss'], styles);
@@ -45,12 +45,14 @@ function watching() {
 function scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
+    'node_modules/slick-carousel/slick/slick.js',
+    'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js',
     'app/js/main.js'
   ])
-  .pipe(concat('main.min.js'))
-  .pipe(uglify())
-  .pipe(dest('app/js'))
-  .pipe(browserSync.stream())
+    .pipe(concat('main.min.js'))
+    .pipe(uglify())
+    .pipe(dest('app/js'))
+    .pipe(browserSync.stream())
 }
 function images() {
   return src('app/images/**/*.*')
@@ -67,7 +69,7 @@ function images() {
         })
       ]
     ))
-  .pipe(dest('./dist/images'))
+    .pipe(dest('./dist/images'))
 }
 
 
